@@ -1,7 +1,7 @@
 ---
 title: "P80105_hw1_lc3807"
 author: "Linshen Cai"
-date: "9.20.2023"
+date: "9.21.2023"
 output: github_document
 ---
 
@@ -15,11 +15,16 @@ library(tidyverse)
 # Question 1
 
 ```{r}
-#load all necessary package for Q1
-# load dataset
+# load all necessary package for Q1
+
 library(moderndive)
 library(ggplot2)
+
+# load dataset
 data("early_january_weather")
+names(early_january_weather)
+
+# take the mean
 mean_temp = mean(early_january_weather$temp)
 
 ```
@@ -40,17 +45,16 @@ According to plot, the general trend in temperature is increasing in given time 
 
 ```{r}
 
-# create a random sample of size 10 from a standard Normal distribution
-# Create a logical vector indicating whether elements are greater than 0
-# Create a character vector of length 10
-# Create a factor vector of length 10 with 3 different levels
 # creat dateframe
-
 la_df = tibble(
+  # create a random sample of size 10 from a standard Normal distribution
   norm_samp = rnorm(10, mean = 0 , sd = 1),
-  vec_logical = norm_samp > 0,
+  # Create a logical vector indicating whether elements are greater than 0
+  vec_logical = norm_samp > 0, 
+  # Create a character vector of length 10
   vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "g"),
-  vec_factor = factor( sample(c("A", "B", "C"), 10, replace = TRUE))
+  # Create a factor vector of length 10 with 3 different levels
+  vec_factor = factor( sample(c("A", "B", "C"), 10, replace = TRUE)) 
 )
 
 la_df
